@@ -1,9 +1,7 @@
-'use strict';
-
 //TODO: To be removed by version 2.3000.x hard release
 
 // Exposes the internal Store to the WhatsApp Web client
-exports.ExposeLegacyStore = () => {
+(() => {
     window.Store = Object.assign({}, window.mR.findModule(m => m.default && m.default.Chat)[0].default);
     window.Store.AppState = window.mR.findModule('Socket')[0].Socket;
     window.Store.Conn = window.mR.findModule('Conn')[0].Conn;
@@ -143,4 +141,4 @@ exports.ExposeLegacyStore = () => {
     window.injectToFunction({ module: 'mediaTypeFromProtobuf', index: 0, function: 'mediaTypeFromProtobuf' }, (func, ...args) => { const [proto] = args; return proto.locationMessage ? null : func(...args); });
 
     window.injectToFunction({ module: 'typeAttributeFromProtobuf', index: 0, function: 'typeAttributeFromProtobuf' }, (func, ...args) => { const [proto] = args; return proto.locationMessage || proto.groupInviteMessage ? 'text' : func(...args); });
-};
+})();

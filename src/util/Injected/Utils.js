@@ -1,4 +1,4 @@
-const LoadUtils = () => {
+(() => {
     window.WWebJS = {};
 
     window.WWebJS.forwardMessage = async (chatId, msgId) => {
@@ -1131,6 +1131,4 @@ const LoadUtils = () => {
         const statuses = window.Store.Status.getModelsArray();
         return statuses.map(status => window.WWebJS.getStatusModel(status));
     };
-};
-
-export { LoadUtils };
+})();

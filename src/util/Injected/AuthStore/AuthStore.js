@@ -1,6 +1,4 @@
-'use strict';
-
-exports.ExposeAuthStore = () => {
+(() => {
     window.AuthStore = {};
     window.AuthStore.AppState = window.require('WAWebSocketModel').Socket;
     window.AuthStore.Cmd = window.require('WAWebCmd').Cmd;
@@ -14,4 +12,4 @@ exports.ExposeAuthStore = () => {
         ...window.require('WAWebUserPrefsInfoStore'),
         ...window.require('WAWebSignalStoreApi'),
     };
-};
+})();

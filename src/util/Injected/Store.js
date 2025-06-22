@@ -1,6 +1,4 @@
-'use strict';
-
-exports.ExposeStore = () => {
+(() => {
     /**
      * Helper function that compares between two WWeb versions. Its purpose is to help the developer to choose the correct code implementation depending on the comparison value and the WWeb version.
      * @param {string} lOperand The left operand for the WWeb version string to compare with
@@ -212,4 +210,4 @@ exports.ExposeStore = () => {
 
     window.injectToFunction({ module: 'WAWebE2EProtoUtils', function: 'typeAttributeFromProtobuf' }, (func, ...args) => { const [proto] = args; return proto.locationMessage || proto.groupInviteMessage ? 'text' : func(...args); });
 
-};
+})();
