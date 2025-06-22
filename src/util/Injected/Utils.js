@@ -1,6 +1,4 @@
-'use strict';
-
-exports.LoadUtils = () => {
+const LoadUtils = () => {
     window.WWebJS = {};
 
     window.WWebJS.forwardMessage = async (chatId, msgId) => {
@@ -1134,3 +1132,5 @@ exports.LoadUtils = () => {
         return statuses.map(status => window.WWebJS.getStatusModel(status));
     };
 };
+
+export { LoadUtils };
